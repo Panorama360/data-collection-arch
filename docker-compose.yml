@@ -1,9 +1,9 @@
-version: "3"
+version: "3.5"
 services:
    rabbitmq:
       image: rabbitmq:3.7-management
       container_name: panorama-rabbitmq
-#      user: rabbitmq
+      user: rabbitmq
       restart: always
       ports:
          - 5672:5672
@@ -66,4 +66,5 @@ services:
          - panorama_net
 networks:
    panorama_net:
+      name: panorama_net
       driver: bridge

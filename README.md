@@ -5,13 +5,14 @@ This project deploys all the required services for the Panorama360 data collecti
 The current configuration of the services requires authentication on RabbitMQ, but all the other services are open and exposed on external traffic from the host machine. Feel free to edit the _docker-compose.yml_ and the other config files in order to restrict access.
 
 _Username_: panorama
+
 _Password_: panorama
 
 ## Prerequisites
 
 On the machine we want to deploy the services the following software has to be installed and configured.
-- Docker (https://docs.docker.com/install/)
-- Docker Compose (https://docs.docker.com/compose/install/)
+- Docker v17.02+ (https://docs.docker.com/install/)
+- Docker Compose v3.5 (https://docs.docker.com/compose/install/)
 
 Spawning the services
 ----------------------
