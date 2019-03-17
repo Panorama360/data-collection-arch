@@ -1,3 +1,4 @@
-kibana/data
-elasticsearch/data
-rabbitmq/data
+kibana/data/*
+elasticsearch/data/*
+rabbitmq/data/*
+!.gitkeep
