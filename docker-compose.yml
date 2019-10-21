@@ -64,6 +64,23 @@ services:
          - 5601:5601
       networks:
          - panorama_net
+   grafana:
+      depends_on:
+         - elasticsearch
+      image: grafana/grafana:latest
+      container_name: panorama-grafana
+      user: grafana
+      restart: always
+      environment:
+         - GF_SECURITY_ADMIN_PASSWORD=panorama
+      volumes:
+         - ./grafana/data:/var/lib/grafana:rw
+         - ./grafana/dashboards:/etc/grafana/provisioning/dashboards:rw
+         - ./grafana/datasources:/etc/grafana/provisioning/datasources:rw
+      ports:
+         - 3000:3000
+      networks:
+         - panorama_net
 networks:
    panorama_net:
       name: panorama_net
