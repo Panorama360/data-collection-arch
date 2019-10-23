@@ -1,0 +1,769 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 4,
+  "links": [],
+  "panels": [
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#56A64B",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticTransfer",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Files Transferred:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "total_files",
+              "id": "1",
+              "meta": {},
+              "settings": {},
+              "type": "count"
+            }
+          ],
+          "query": "event:\"transfer.inv.local.single\" AND (source_url:\"*casa-dtn*\" OR destination_url:\"*casa-dtn*\")",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Files Transferred From/To the DTN",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#FF780A",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticTransfer",
+      "format": "decmbytes",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "pluginVersion": "6.4.2",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Data Transferred:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "bytes_transferred",
+              "id": "1",
+              "inlineScript": "_value/1024/1024",
+              "meta": {},
+              "settings": {
+                "script": {
+                  "inline": "_value/1024/1024"
+                }
+              },
+              "type": "sum"
+            }
+          ],
+          "query": "event:\"transfer.inv.local.single\" AND (source_url:\"*casa-dtn*\" OR destination_url:\"*casa-dtn*\")",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Data Transferred From/To the DTN",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#5794F2",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticTransfer",
+      "format": "decmbytes",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 6,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "pluginVersion": "6.4.2",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Data to ExoGENI:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "bytes_transferred",
+              "id": "1",
+              "inlineScript": "_value/1024/1024",
+              "meta": {},
+              "settings": {
+                "script": {
+                  "inline": "_value/1024/1024"
+                }
+              },
+              "type": "sum"
+            }
+          ],
+          "query": "event:\"transfer.inv.local.single\" AND source_url:\"*casa-dtn*\" AND hostname:\"*exogeni*\"",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Data Transferred To ExoGENI",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#5794F2",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticTransfer",
+      "format": "decmbytes",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 5,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "pluginVersion": "6.4.2",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Data to Chameleon:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "bytes_transferred",
+              "id": "1",
+              "inlineScript": "_value/1024/1024",
+              "meta": {},
+              "settings": {
+                "script": {
+                  "inline": "_value/1024/1024"
+                }
+              },
+              "type": "sum"
+            }
+          ],
+          "query": "event:\"transfer.inv.local.single\" AND source_url:\"*casa-dtn*\" AND hostname:\"*chameleon*\"",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Data Transferred To Chameleon",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "PanoramaElasticTransfer",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 16
+      },
+      "id": 8,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Stage_IN",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "bytes_transferred",
+              "id": "1",
+              "inlineScript": "_value/1024/1024",
+              "meta": {},
+              "settings": {
+                "script": {
+                  "inline": "_value/1024/1024"
+                }
+              },
+              "type": "sum"
+            }
+          ],
+          "query": "event:\"transfer.inv.local.single\" AND source_url:\"*casa-dtn*\"",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Stage_OUT",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "bytes_transferred",
+              "id": "1",
+              "inlineScript": "_value/1024/1024",
+              "meta": {},
+              "settings": {
+                "script": {
+                  "inline": "_value/1024/1024"
+                }
+              },
+              "type": "sum"
+            }
+          ],
+          "query": "event:\"transfer.inv.local.single\" AND destination_url:\"*casa-dtn*\"",
+          "refId": "B",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Data Transferred over Time",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decmbytes",
+          "label": "Data Transferred",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "PanoramaElasticTransfer",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 10,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "alias": "Stage_IN",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "hide": false,
+          "metrics": [
+            {
+              "field": "total_files",
+              "id": "1",
+              "meta": {},
+              "settings": {},
+              "type": "count"
+            }
+          ],
+          "query": "event:\"transfer.inv.local.single\" AND source_url:\"*casa-dtn*\"",
+          "refId": "A",
+          "timeField": "@timestamp"
+        },
+        {
+          "alias": "Stage_OUT",
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "select field",
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "event:\"transfer.inv.local.single\" AND destination_url:\"*casa-dtn*\"",
+          "refId": "B",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Files Transferred over Time",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "short",
+          "label": "Files Transferred",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 20,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2019-10-21T16:00:22.293Z",
+    "to": "2019-10-21T18:00:55.450Z"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "Dynamo Data View",
+  "uid": "2P0Bq6oWk",
+  "version": 13
+}

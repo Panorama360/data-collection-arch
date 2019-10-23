@@ -1,0 +1,1089 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "id": 3,
+  "links": [],
+  "panels": [
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#3274D9",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticStampede",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Workflows:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "select field",
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "event:\"stampede.xwf.start\"",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Number of Workflows Submitted",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#3274D9",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticStampede",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      },
+      "id": 10,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "CASA Hail:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "select field",
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "event:\"stampede.xwf.start\" AND dag:*casa_hail_*",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Hail Workflows Started",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#3274D9",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticStampede",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "id": 8,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "CASA Wind:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "select field",
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "event:\"stampede.xwf.start\" AND dag:*casa_wind_*",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Wind Workflows Started",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#3274D9",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticStampede",
+      "decimals": null,
+      "format": "s",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 17,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "local_dur",
+              "id": "1",
+              "inlineScript": null,
+              "meta": {},
+              "settings": {},
+              "type": "sum"
+            }
+          ],
+          "query": "event:\"stampede.job_inst.main.end\"",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Cumulative Time",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "0",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#3274D9",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticStampede",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 7
+      },
+      "id": 4,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Submitted Tasks:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "select field",
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "event:\"stampede.inv.start\" AND inv_id: [0 TO *]",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Number of Tasks Submitted",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#56A64B",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticStampede",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 7
+      },
+      "id": 12,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Successful Tasks:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "select field",
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "event:\"stampede.inv.end\" AND inv_id: [0 TO *] AND exitcode: 0",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Number of Successful Tasks",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#E02F44",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticStampede",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 7
+      },
+      "id": 14,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Failed Tasks:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "select field",
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "event:\"stampede.inv.end\" AND inv_id: [0 TO *] AND (NOT exitcode: 0)",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Number of Failed Tasks",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#3274D9",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticStampede",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 15
+      },
+      "id": 15,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Tasks on ExoGENI:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "select field",
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "event:\"stampede.job_inst.host.info\" AND hostname:*exogeni*",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Number of Tasks Executed on ExoGENI",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": true,
+      "colors": [
+        "#3274D9",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "PanoramaElasticStampede",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 15
+      },
+      "id": 16,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "options": {},
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "Tasks on Chameleon:",
+      "prefixFontSize": "150%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": true,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "select field",
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "event:\"stampede.job_inst.host.info\" AND hostname:*chameleon*",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Total Number of Tasks Executed on Chameleon",
+      "type": "singlestat",
+      "valueFontSize": "150%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "total"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "cacheTimeout": null,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "PanoramaElasticStampede",
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 23
+      },
+      "id": 18,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "bucketAggs": [
+            {
+              "field": "@timestamp",
+              "id": "2",
+              "settings": {
+                "interval": "auto",
+                "min_doc_count": 0,
+                "trimEdges": 0
+              },
+              "type": "date_histogram"
+            }
+          ],
+          "metrics": [
+            {
+              "field": "select field",
+              "id": "1",
+              "type": "count"
+            }
+          ],
+          "query": "event:\"stampede.inv.start\" AND inv_id: [0 TO *]",
+          "refId": "A",
+          "timeField": "@timestamp"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Tasks Submitted over Time",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "Tasks",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 20,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2019-10-21T16:00:22.293Z",
+    "to": "2019-10-21T18:00:55.450Z"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "browser",
+  "title": "Dynamo Workflow View",
+  "uid": "sayAbeoZz",
+  "version": 20
+}
