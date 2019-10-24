@@ -73,6 +73,7 @@ services:
       restart: always
       environment:
          - GF_SECURITY_ADMIN_PASSWORD=panorama
+         - GF_INSTALL_PLUGINS=grafana-piechart-panel,farski-blendstat-panel,mtanda-histogram-panel,blackmirror1-singlestat-math-panel
       volumes:
          - ./grafana/data:/var/lib/grafana:rw
          - ./grafana/dashboards:/etc/grafana/provisioning/dashboards:rw
