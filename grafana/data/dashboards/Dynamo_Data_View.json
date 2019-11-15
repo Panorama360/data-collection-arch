@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 3,
   "links": [],
   "panels": [
     {
@@ -325,7 +325,7 @@
               "type": "sum"
             }
           ],
-          "query": "event:\"transfer.inv.local.single\" AND source_url:\"*casa-dtn*\" AND hostname:\"*exogeni*\"",
+          "query": "event:\"transfer.inv.local.single\" AND source_url:\"*casa-dtn*\" AND hostname:\"exogeni*\"",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -436,7 +436,7 @@
               "type": "sum"
             }
           ],
-          "query": "event:\"transfer.inv.local.single\" AND source_url:\"*casa-dtn*\" AND hostname:\"*chameleon*\"",
+          "query": "event:\"transfer.inv.local.single\" AND source_url:\"*casa-dtn*\" AND ( hostname:\"chameleon*\" OR hostname:\"host-192-168-90*\" OR hostname:\"host-192-168-89*\" )",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -745,7 +745,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -765,5 +765,5 @@
   "timezone": "browser",
   "title": "Dynamo Data View",
   "uid": "2P0Bq6oWk",
-  "version": 13
+  "version": 1
 }

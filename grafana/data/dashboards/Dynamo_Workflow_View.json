@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 3,
+  "id": 2,
   "links": [],
   "panels": [
     {
@@ -826,7 +826,7 @@
               "type": "count"
             }
           ],
-          "query": "event:\"stampede.job_inst.host.info\" AND hostname:*exogeni*",
+          "query": "event:\"stampede.job_inst.host.info\" AND hostname:\"exogeni*\"",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -929,7 +929,7 @@
               "type": "count"
             }
           ],
-          "query": "event:\"stampede.job_inst.host.info\" AND hostname:*chameleon*",
+          "query": "event:\"stampede.job_inst.host.info\" AND ( hostname:\"chameleon*\" OR hostname:\"host-192-168-90*\" OR hostname:\"host-192-168-89*\" )",
           "refId": "A",
           "timeField": "@timestamp"
         }
@@ -1065,7 +1065,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -1085,5 +1085,5 @@
   "timezone": "browser",
   "title": "Dynamo Workflow View",
   "uid": "sayAbeoZz",
-  "version": 20
+  "version": 1
 }
